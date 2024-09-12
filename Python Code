@@ -1,0 +1,51 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Sample data (replace with your actual data)
+data = {
+    'Age': [20, 22, 21, 23, 22],
+    'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'],
+    'GPA': [3.5, 3.9, 3.2, 3.7, 3.8],
+    'Program': ['Engineering', 'Computer Science', 'Business', 'Physics', 'Mathematics'],
+    'Students_Enrolled_Per_Sem': [100, 150, 120, 80, 200]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Bar Chart for Age
+plt.figure(figsize=(8, 5))
+plt.bar(df.index, df['Age'], color='skyblue')
+plt.xlabel('Student Index')
+plt.ylabel('Age')
+plt.title('Age Distribution')
+plt.show()
+
+# Pie Chart for Gender
+gender_counts = df['Gender'].value_counts()
+plt.figure(figsize=(8, 5))
+plt.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', colors=['lightcoral', 'lightblue'])
+plt.title('Gender Distribution')
+plt.show()
+
+# Bar Chart for GPA
+plt.figure(figsize=(8, 5))
+plt.bar(df.index, df['GPA'], color='lightgreen')
+plt.xlabel('Student Index')
+plt.ylabel('GPA')
+plt.title('GPA Distribution')
+plt.show()
+
+# Pie Chart for Program
+program_counts = df['Program'].value_counts()
+plt.figure(figsize=(8, 5))
+plt.pie(program_counts, labels=program_counts.index, autopct='%1.1f%%', startangle=90, counterclock=False)
+plt.title('Program Distribution')
+plt.show()
+
+# Bar Chart for Students Enrolled Per Semester
+plt.figure(figsize=(8, 5))
+plt.bar(df.index, df['Students_Enrolled_Per_Sem'], color='salmon')
+plt.xlabel('Student Index')
+plt.ylabel('Students Enrolled Per Semester')
+plt.title('Students Enrolled Per Semester Distribution')
